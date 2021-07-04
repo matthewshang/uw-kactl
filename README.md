@@ -1,6 +1,6 @@
-# KACTL
+# UW-KACTL
 
-This repo hosts KACTL, [KTH](https://en.wikipedia.org/wiki/KTH_Royal_Institute_of_Technology)'s ICPC team reference document.
+This repo hosts UW-KACTL, [UW](https://en.wikipedia.org/wiki/University_of_Washington)'s ICPC team reference document.
 It consists of 25 pages of copy-pasteable C++ code, for use in ICPC-style programming competitions.
 
 See [kactl.pdf](./kactl.pdf) for the final, browsable version, and [content/](./content/) for raw source code.
