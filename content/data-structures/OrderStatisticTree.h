@@ -11,6 +11,9 @@
 #pragma once
 
 #include <bits/extc++.h> /** keep-include */
+// If the above doesn't work, include these two instead:
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 
 template<class T>
