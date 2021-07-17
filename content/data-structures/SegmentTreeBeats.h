@@ -1,4 +1,5 @@
 /**
+ * Author: External
  * Source: https://tjkendev.github.io/procon-library/cpp/range_query/segment_tree_beats_2.html
  * Description: Segment tree beats. Ranges are [l, r). Copy whatever is needed.
  * Time: O(\log N)
