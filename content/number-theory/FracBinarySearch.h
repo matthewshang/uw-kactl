@@ -36,3 +36,62 @@ Frac fracBS(F f, ll N) {
 	}
 	return dir ? hi : lo;
 }
+
+// Custom version
+struct Frac {
+	ll n, d;
+	Frac(ll n_, ll d_, bool reduce = false) {
+		n = n_, d = d_;
+		if (reduce) {
+			ll g = __gcd(n, d);
+			n /= g, d /= g;
+		}
+	}
+	Frac(ll n): n(n), d(1) {}
+	Frac operator+(const Frac &f) const { return Frac(n*f.d + d*f.n, d*f.d, true); }
+	Frac operator-(const Frac &f) const { return Frac(n*f.d - d*f.n, d*f.d, true); }
+	Frac operator*(const Frac &f) const { return Frac(n*f.n, d*f.d, true); }
+	Frac operator/(const Frac &f) const { return Frac(n*f.d, d*f.n, true); }
+	Frac operator+(const ll x) const { return Frac(n+x*d, d); }
+	Frac operator-(const ll x) const { return Frac(n-x*d, d); }
+	Frac operator*(const ll x) const { return Frac(n*x, d, true); }
+	Frac operator/(const ll x) const {
+		if (n % d == 0) return Frac(n/d, d);
+		return Frac(n, d*x, true);
+	}
+	bool operator<(const Frac &f) const { return n*f.d < f.n*d; }
+	bool operator>(const Frac &f) const { return n*f.d > f.n*d; }
+	bool operator==(const Frac &f) const { return n*f.d == f.n*d; }
+	bool operator<(const ll x) const { return n < x*d; }
+	bool operator>(const ll x) const { return n > x*d; }
+};
+
+// smallest is true if finding smallest possible x s.t. f(x) works, otherwise largest.
+template<class F>
+Frac fracBS(F f, ll N, bool smallest = true) {
+	bool dir = 1, A = 1, B = 1;
+	Frac lo{0, 1}, hi{1, 1}; // Set hi to 1/0 to search (0, N]
+	if (smallest) {
+		if (f(lo)) return lo;
+		assert(f(hi));
+	} else {
+		if (f(hi)) return hi;
+		assert(f(lo));
+	}
+	while (A || B) {
+		ll adv = 0, step = 1; // move hi if dir, else lo (for smallest)
+		for (int si = 0; step; (step *= 2) >>= si) {
+			adv += step;
+			Frac mid{lo.n * adv + hi.n, lo.d * adv + hi.d};
+			if (abs(mid.n) > N || mid.d > N || dir == !f(mid)) {
+				adv -= step; si = 2;
+			}
+		}
+		hi.n += lo.n * adv;
+		hi.d += lo.d * adv;
+		dir = !dir;
+		swap(lo, hi);
+		A = B; B = !!adv;
+	}
+	return dir ? hi : lo;
+}
