@@ -4,7 +4,7 @@
  * License: CC0
  * Source: N/A
  * Description: Fast bipartite matching algorithm. Graph $g$ should be a list
- * of neighbors of the left partition, and $btoa$ should be a vector full of
+ * of neighbors of the left partition (both sides labelled from 0 to n/m), and $btoa$ should be a vector full of
  * -1's of the same size as the right partition. Returns the size of
  * the matching. $btoa[i]$ will be the match for vertex $i$ on the right side,
  * or $-1$ if it's not matched.

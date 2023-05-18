@@ -5,6 +5,9 @@
  * Description: Finds a minimum vertex cover in a bipartite graph.
  *  The size is the same as the size of a maximum matching, and
  *  the complement is a maximum independent set.
+ *  The two sides of the bipartite graph should be $\{0, \ldots, n-1\}$
+ *  and $\{0, \ldots, m-1\}$. `g` should be the adjacency list of ONLY
+ *  the first $n$ nodes. See DFSMatching.
  * Status: stress-tested
  */
 #pragma once
