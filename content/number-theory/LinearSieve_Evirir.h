@@ -14,8 +14,7 @@
 
 vector<ll> primes, lowprime;
 vector<bool> isprime;
-void LinearSieve(ll n)
-{
+void LinearSieve(ll n) {
     isprime.assign(n + 1, 1);
     lowprime.assign(n + 1, 0);
     isprime[1] = false;

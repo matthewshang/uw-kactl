@@ -12,8 +12,7 @@
 #include "LinearSieve_Evirir.h"
 
 vector<int> mobius;
-void SieveMobius(ll n)
-{
+void SieveMobius(ll n) {
     mobius.resize(n + 1);
     mobius[1] = 1;
     for (ll i = 2; i <= n; i++)
