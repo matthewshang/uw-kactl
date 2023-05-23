@@ -9,12 +9,12 @@
  * with no duplicates. \texttt{pf} in \texttt{getdiv} should come from \texttt{getpf}.
  * Usage: vector<pair<ll, ll>> pf; vector<ll> div;
  *	getpf(pf, n); getdiv(div, pf);
- * Time: \textt{getpf} is $O(\sqrt{n})$, \textt{getdiv} is $\approx O(n^{1/3})$.
+ * Time: \texttt{getpf} is $O(\sqrt{n})$, \texttt{getdiv} is $\approx O(n^{1/3})$.
  * Status: tested
  */
 #pragma once
 
-#include "LinearSieve_Evirir.h"
+#include "LinearSieveEvirir.h"
 
 void getpf(vector<pair<ll, ll>& pf, ll n) {
 	pf.clear();

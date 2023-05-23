@@ -4,10 +4,10 @@
  * License: CC0
  * Source: own
  * Description: Centroid decomposition. Two independent functions:
- * (1) \texttt{build_tree} builds the centroid tree. (2) \textt{solve}
- * Time: \texttt{build_tree} is $O(n \log n)$. \texttt{solve}:
+ * (1) \texttt{build\_tree} builds the centroid tree. (2) \texttt{solve}
+ * Time: \texttt{build\_tree} is $O(n \log n)$. \texttt{solve}:
  * Every node is processed by $O(\log n)$ roots. $O(n \log n)$ if you
- * do $O(\text{# of nodes in centroid subtree})$ time per root.
+ * do $O(\text{centroid subtree size})$ time per root.
  * Status: tested
  */
 

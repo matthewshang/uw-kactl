@@ -9,7 +9,7 @@
  */
 #pragma once
 
-#include "LinearSieve_Evirir.h"
+#include "LinearSieveEvirir.h"
 
 vector<int> mobius;
 void SieveMobius(ll n) {
