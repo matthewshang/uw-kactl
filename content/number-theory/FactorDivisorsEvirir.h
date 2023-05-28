@@ -16,7 +16,7 @@
 
 #include "LinearSieveEvirir.h"
 
-void getpf(vector<pair<ll, ll>& pf, ll n) {
+void getpf(vector<pair<ll, ll>>& pf, ll n) {
 	pf.clear();
 	for (ll i = 0; primes[i] * primes[i] <= n; i++)
 	{
