@@ -34,6 +34,7 @@ void getpf(vector<pair<ll, ll>>& pf, ll n) {
 	}
 }
 void getdiv(vector<ll>& div, vector<pair<ll, ll>>& pf, ll n = 1, int i = 0) {
+	if (pf.empty()) { div = {1}; return; } // divisors of 1
 	ll x, k;
 	if (i >= sz(pf)) return;
 	x = n;
