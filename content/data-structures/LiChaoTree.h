@@ -18,13 +18,13 @@ double calc(int id, int d) { return p[id].b + p[id].k * d; }
 
 void add(int x0, int y0, int x1, int y1) {
   cnt++;
-  if (x0 == x1)  // 特判直线斜率不存在的情况
+  if (x0 == x1)  // special case for vertical lines
     p[cnt].k = 0, p[cnt].b = max(y0, y1);
   else
     p[cnt].k = 1.0 * (y1 - y0) / (x1 - x0), p[cnt].b = y0 - p[cnt].k * x0;
 }
 
-void upd(int root, int cl, int cr, int u) {  // 对线段完全覆盖到的区间进行修改
+void upd(int root, int cl, int cr, int u) {
   int &v = s[root], mid = (cl + cr) >> 1;
   int bmid = cmp(calc(u, mid), calc(v, mid));
   if (bmid == 1 || (!bmid && u < v)) swap(u, v);
@@ -34,7 +34,7 @@ void upd(int root, int cl, int cr, int u) {  // 对线段完全覆盖到的区�
 }
 
 void update(int root, int cl, int cr, int l, int r,
-            int u) {  // 定位插入线段完全覆盖到的区间
+            int u) {
   if (l <= cl && cr <= r) {
     upd(root, cl, cr, u);
     return;
@@ -44,7 +44,7 @@ void update(int root, int cl, int cr, int l, int r,
   if (mid < r) update(root << 1 | 1, mid + 1, cr, l, r, u);
 }
 
-pdi pmax(pdi x, pdi y) {  // pair max函数
+pdi pmax(pdi x, pdi y) {
   if (cmp(x.first, y.first) == -1)
     return y;
   else if (cmp(x.first, y.first) == 1)
@@ -53,7 +53,7 @@ pdi pmax(pdi x, pdi y) {  // pair max函数
     return x.second < y.second ? x : y;
 }
 
-pdi query(int root, int l, int r, int d) {  // 查询
+pdi query(int root, int l, int r, int d) {
   if (r < d || d < l) return {0, 0};
   int mid = (l + r) >> 1;
   double res = calc(s[root], d);
