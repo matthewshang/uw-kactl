@@ -16,6 +16,7 @@
 	\kactlimport{GomoryHu.h}
 
 \section{Matching}
+	Edge cover: Max matching then add edges
 	\kactlimport{hopcroftKarp.h}
 	\kactlimport{DFSMatching.h}
 	\kactlimport{MinimumVertexCover.h}
@@ -46,6 +47,8 @@
 	\kactlimport{LCT.h}
 	\kactlimport{DirectedMST.h}
 	\kactlimport{CentroidDecompEvirir.h}
+	\subsection{Prufer code}
+	Remove smallest leaf, add leaf's neighbor to Prufer $(n - 2)$ times
 
 \section{Math}
 	\subsection{Number of Spanning Trees}
@@ -56,6 +59,8 @@
 		\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
 		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
 		(if $G$ is undirected, remove any row/column).
+
+		Cayley: Complete graph: $n^{n-2}$
 
 	\subsection{Erdős-Gallai theorem}
 		% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
